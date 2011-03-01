@@ -6,7 +6,7 @@
 
 #include <map>
 
-#include <tpDynamicToneMappingManager.h>
+#include <Managers/tpDynamicToneMappingManager.h>
 
 class QDynamicConfig : public QWidget
 {

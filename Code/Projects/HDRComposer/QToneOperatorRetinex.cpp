@@ -1,7 +1,7 @@
 
 #include "QToneOperatorRetinex.h"
 
-#include <tpHDRToneOperatorRetinex.h>
+#include <ToneOperators/tpHDRToneOperatorRetinex.h>
 
 QToneOperatorRetinex::QToneOperatorRetinex(QWidget* parent) :
 	QToneOperatorFormAbstract(parent, "Retinex")

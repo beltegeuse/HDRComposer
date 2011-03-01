@@ -1,9 +1,9 @@
 #include "QToneOperatorAbstract.h"
 
-#include "tpOperations.h"
-#include "tpImageConvert.hpp"
+#include "Operations/tpOperations.h"
+#include "Operations/tpImageConvert.hpp"
 #include "tpImage.hpp"
-#include "tpDisplayManager.h"
+#include "Managers/tpDisplayManager.h"
 
 QToneOperatorAbstract::QToneOperatorAbstract(QWidget* parent) :
 	QFrame(parent),

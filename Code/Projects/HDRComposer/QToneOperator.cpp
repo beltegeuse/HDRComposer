@@ -1,26 +1,25 @@
 
 #include "QToneOperator.h"
-#include <tpHDRToneOperatorAshikhmin.h>
-#include <tpImageConvert.hpp>
-#include <tpOperations.h>
-#include <tpDisplayManager.h>
+#include <Operations/tpImageConvert.hpp>
+#include <Operations/tpOperations.h>
+#include <Managers/tpDisplayManager.h>
 
-#include <tpHDRToneOperatorAshikhmin.h>
-#include <tpHDRToneOperatorChiu.h>
-#include <tpHDRToneOperatorDrago.h>
-#include <tpHDRToneOperatorExp.h>
-#include <tpHDRToneOperatorFilmic.h>
-#include <tpHDRToneOperatorLinear.h>
-#include <tpHDRToneOperatorLog.h>
-#include <tpHDRToneOperatorRetinex.h>
-#include <tpHDRToneOperatorSchlick.h>
-#include <tpHDRToneOperatorSigmoid.h>
-#include <tpHDRToneOperatorWard.h>
-#include <tpHDRToneOperatorPhotographic.h>
-#include <tpHDRToneOperatorPhotographicBurn.h>
-#include <tpHDRToneOperatorPhotographicLocal.h>
-#include <tpHDRToneOperatorTumblin.h>
-#include <tpHDRToneOperatorFilmicDynamic.h>
+#include <ToneOperators/tpHDRToneOperatorAshikhmin.h>
+#include <ToneOperators/tpHDRToneOperatorChiu.h>
+#include <ToneOperators/tpHDRToneOperatorDrago.h>
+#include <ToneOperators/tpHDRToneOperatorExp.h>
+#include <ToneOperators/tpHDRToneOperatorFilmic.h>
+#include <ToneOperators/tpHDRToneOperatorLinear.h>
+#include <ToneOperators/tpHDRToneOperatorLog.h>
+#include <ToneOperators/tpHDRToneOperatorRetinex.h>
+#include <ToneOperators/tpHDRToneOperatorSchlick.h>
+#include <ToneOperators/tpHDRToneOperatorSigmoid.h>
+#include <ToneOperators/tpHDRToneOperatorWard.h>
+#include <ToneOperators/tpHDRToneOperatorPhotographic.h>
+#include <ToneOperators/tpHDRToneOperatorPhotographicBurn.h>
+#include <ToneOperators/tpHDRToneOperatorPhotographicLocal.h>
+#include <ToneOperators/tpHDRToneOperatorTumblin.h>
+#include <ToneOperators/tpHDRToneOperatorFilmicDynamic.h>
 
 QToneOperator::QToneOperator(QWidget* parent, const QString& name): 
 	QToneOperatorAbstract(parent),

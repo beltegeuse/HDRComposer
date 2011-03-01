@@ -1,7 +1,7 @@
 
 #include "QToneOperatorTumblin.h"
 
-#include <tpHDRToneOperatorTumblin.h>
+#include <ToneOperators/tpHDRToneOperatorTumblin.h>
 
 QToneOperatorTumblin::QToneOperatorTumblin(QWidget* parent) :
 	QToneOperatorFormAbstract(parent, "Thumblin (*)")

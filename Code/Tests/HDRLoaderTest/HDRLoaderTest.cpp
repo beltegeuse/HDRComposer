@@ -4,15 +4,15 @@
 #include <iostream>
 
 #include <tpMath.h>
-#include <tpImageFilter.hpp>
+#include <Operations/tpImageFilter.hpp>
 #include <tpImage.hpp>
 #include <tpImageIO.hpp>
-#include <tpImageConvert.hpp>
-#include <tpHDROperations.h>
-#include <tpOperations.h>
-#include <tpOperatorCropping.h>
-#include <tpToneOperatorGroup.h>
-#include <tpDisplayManager.h>
+#include <Operations/tpImageConvert.hpp>
+#include <Operations/tpHDROperations.h>
+#include <Operations/tpOperations.h>
+#include <Operations/tpOperatorCropping.h>
+#include <Tools/tpToneOperatorGroup.h>
+#include <Managers/tpDisplayManager.h>
 
 void ToneMappingColorSaturation(const std::string& path, const std::string & nom, bool clamp, double s = 0.65)
 {

@@ -4,8 +4,8 @@
 
 #include <QMessageBox>
 
-#include <tpDynamicToneMappingManager.h>
-#include <tpImageConvert.hpp>
+#include <Managers/tpDynamicToneMappingManager.h>
+#include <Operations/tpImageConvert.hpp>
 
 QControlPanel::QControlPanel(QWidget* parent) :
 	QWidget(parent),

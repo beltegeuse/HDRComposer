@@ -1,7 +1,7 @@
 #pragma once
 
 #include "tpImage.hpp"
-#include "tpImageFilter.hpp"
+#include "Operations/tpImageFilter.hpp"
 
 class tpMath
 {

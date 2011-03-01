@@ -1,7 +1,7 @@
 #pragma once
 
 #include "tpImage.hpp"
-#include "tpToneOperatorAbstract.h"
+#include "ToneOperators/tpToneOperatorAbstract.h"
 
 #include <QtGui>
 

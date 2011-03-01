@@ -1,5 +1,5 @@
 #include "QDisplayConfig.h"
-#include <tpDisplayManager.h>
+#include <Managers/tpDisplayManager.h>
 #include <QMessageBox>
 QDisplayConfig::QDisplayConfig(QWidget *parent)
 	: QWidget(parent)

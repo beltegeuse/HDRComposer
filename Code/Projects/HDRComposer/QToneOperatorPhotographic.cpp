@@ -1,6 +1,6 @@
 #include "QToneOperatorPhotographic.h"
 
-#include <tpHDRToneOperatorPhotographic.h>
+#include <ToneOperators/tpHDRToneOperatorPhotographic.h>
 
 QToneOperatorPhotographic::QToneOperatorPhotographic(QWidget* parent) :
 	QToneOperatorFormAbstract(parent, "Photographic (*)")

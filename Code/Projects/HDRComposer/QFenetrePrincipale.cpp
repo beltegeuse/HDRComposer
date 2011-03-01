@@ -6,7 +6,7 @@
 
 // Include projet
 #include <tpImageIO.hpp>
-#include <tpDynamicToneMappingManager.h>
+#include <Managers/tpDynamicToneMappingManager.h>
 
 #include "QDisplayConfig.h"
 #include "QDynamicConfig.h"

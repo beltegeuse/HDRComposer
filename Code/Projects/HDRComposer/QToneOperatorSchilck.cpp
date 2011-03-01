@@ -1,7 +1,7 @@
 
 #include "QToneOperatorSchilck.h"
 
-#include <tpHDRToneOperatorSchlick.h>
+#include <ToneOperators/tpHDRToneOperatorSchlick.h>
 
 QToneOperatorSchilck::QToneOperatorSchilck(QWidget* parent) :
 	QToneOperatorFormAbstract(parent, "Schlick")

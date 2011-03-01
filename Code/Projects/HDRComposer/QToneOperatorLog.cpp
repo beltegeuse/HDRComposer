@@ -1,6 +1,6 @@
 
 #include "QToneOperatorLog.h"
-#include <tpHDRToneOperatorLog.h>
+#include <ToneOperators/tpHDRToneOperatorLog.h>
 
 QToneOperatorLog::QToneOperatorLog(QWidget* parent) :
 	QToneOperatorFormAbstract(parent, "Log")

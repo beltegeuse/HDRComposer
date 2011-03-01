@@ -1,40 +1,43 @@
 SET(HDRLoader_SRCS
-	tpDisplayManager.cpp
-	tpDynamicToneMappingManager.cpp
 	tpException.cpp
-	tpHDROperations.cpp
-	tpHDRToneOperatorAshikhmin.cpp
-	tpHDRToneOperatorChiu.cpp
-	tpHDRToneOperatorDrago.cpp
-	tpHDRToneOperatorDurand.cpp
-	tpHDRToneOperatorExp.cpp
-	tpHDRToneOperatorFilmic.cpp
-	tpHDRToneOperatorFilmicDynamic.cpp
-	tpHDRToneOperatorHistogramme.cpp
-	tpHDRToneOperatorLinear.cpp
-	tpHDRToneOperatorLog.cpp
-	tpHDRToneOperatorLumAbstract.cpp
-	tpHDRToneOperatorPhotographic.cpp
-	tpHDRToneOperatorPhotographicBurn.cpp
-	tpHDRToneOperatorPhotographicLocal.cpp
-	tpHDRToneOperatorRetinex.cpp
-	tpHDRToneOperatorSchlick.cpp
-	tpHDRToneOperatorSigmoid.cpp
-	tpHDRToneOperatorTumblin.cpp
-	tpHDRToneOperatorWard.cpp
 	tpImage.cpp
-	tpImageConvert.cpp
-	tpImageFilter.cpp
 	tpImageIO.cpp
-	tpImageManager.cpp
-	tpImageThreshold.cpp
 	tpMath.cpp
-	tpOperations.cpp
-	tpOperatorCropping.cpp
-	tpPerformances.cpp
-	tpReadOption.cpp
-	tpToneOperatorAbstract.cpp
-	tpToneOperatorGroup.cpp
+	
+	Tools/tpPerformances.cpp
+	Tools/tpReadOption.cpp
+	Tools/tpToneOperatorGroup.cpp
+	
+	Operations/tpOperations.cpp
+	Operations/tpOperatorCropping.cpp
+	Operations/tpHDROperations.cpp
+	Operations/tpImageConvert.cpp
+	Operations/tpImageFilter.cpp
+	Operations/tpImageThreshold.cpp
+	
+	Managers/tpDisplayManager.cpp
+	Managers/tpDynamicToneMappingManager.cpp
+	
+	ToneOperators/tpHDRToneOperatorAshikhmin.cpp
+	ToneOperators/tpHDRToneOperatorChiu.cpp
+	ToneOperators/tpHDRToneOperatorDrago.cpp
+	ToneOperators/tpHDRToneOperatorDurand.cpp
+	ToneOperators/tpHDRToneOperatorExp.cpp
+	ToneOperators/tpHDRToneOperatorFilmic.cpp
+	ToneOperators/tpHDRToneOperatorFilmicDynamic.cpp
+	ToneOperators/tpHDRToneOperatorHistogramme.cpp
+	ToneOperators/tpHDRToneOperatorLinear.cpp
+	ToneOperators/tpHDRToneOperatorLog.cpp
+	ToneOperators/tpHDRToneOperatorLumAbstract.cpp
+	ToneOperators/tpHDRToneOperatorPhotographic.cpp
+	ToneOperators/tpHDRToneOperatorPhotographicBurn.cpp
+	ToneOperators/tpHDRToneOperatorPhotographicLocal.cpp
+	ToneOperators/tpHDRToneOperatorRetinex.cpp
+	ToneOperators/tpHDRToneOperatorSchlick.cpp
+	ToneOperators/tpHDRToneOperatorSigmoid.cpp
+	ToneOperators/tpHDRToneOperatorTumblin.cpp
+	ToneOperators/tpHDRToneOperatorWard.cpp
+	ToneOperators/tpToneOperatorAbstract.cpp
 )
 
 

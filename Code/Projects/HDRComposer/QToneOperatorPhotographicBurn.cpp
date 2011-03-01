@@ -1,7 +1,7 @@
 
 #include "QToneOperatorPhotographicBurn.h"
 
-#include <tpHDRToneOperatorPhotographicBurn.h>
+#include <ToneOperators/tpHDRToneOperatorPhotographicBurn.h>
 
 QToneOperatorPhotographicBurn::QToneOperatorPhotographicBurn(QWidget* parent) :
 	QToneOperatorFormAbstract(parent, "Photographic Burn")

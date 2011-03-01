@@ -1,7 +1,7 @@
 
 #include "QToneOperatorDrago.h"
 
-#include <tpHDRToneOperatorDrago.h>
+#include <ToneOperators/tpHDRToneOperatorDrago.h>
 
 QToneOperatorDrago::QToneOperatorDrago(QWidget* parent) :
 	QToneOperatorFormAbstract(parent, "Drago (*)")

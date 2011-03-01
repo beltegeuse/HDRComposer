@@ -1,7 +1,7 @@
 
 #include "QToneOperatorAshikm.h"
 
-#include <tpHDRToneOperatorAshikhmin.h>
+#include <ToneOperators/tpHDRToneOperatorAshikhmin.h>
 
 QToneOperatorAshikm::QToneOperatorAshikm(QWidget* parent) :
 	QToneOperatorFormAbstract(parent, "Ashikhim")

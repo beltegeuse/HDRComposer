@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 
 #include "tpImageIO.hpp"
-#include "tpImageConvert.hpp"
+#include "Operations/tpImageConvert.hpp"
 
 #include <algorithm>
 #include <iterator>

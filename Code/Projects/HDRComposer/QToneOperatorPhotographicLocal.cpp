@@ -1,7 +1,7 @@
 
 #include "QToneOperatorPhotographicLocal.h"
 
-#include <tpHDRToneOperatorPhotographicLocal.h>
+#include <ToneOperators/tpHDRToneOperatorPhotographicLocal.h>
 
 QToneOperatorPhotographicLocal::QToneOperatorPhotographicLocal(QWidget* parent) :
 	QToneOperatorFormAbstract(parent, "Photographic Local")

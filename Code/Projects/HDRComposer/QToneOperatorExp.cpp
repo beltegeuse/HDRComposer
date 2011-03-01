@@ -1,5 +1,5 @@
 #include "QToneOperatorExp.h"
-#include <tpHDRToneOperatorExp.h>
+#include <ToneOperators/tpHDRToneOperatorExp.h>
 
 QToneOperatorExp::QToneOperatorExp(QWidget* parent) :
 	QToneOperatorFormAbstract(parent, "Exp (*)")

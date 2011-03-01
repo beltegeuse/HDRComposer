@@ -1,7 +1,7 @@
 
 #include "QToneOperatorChui.h"
 
-#include <tpHDRToneOperatorChiu.h>
+#include <ToneOperators/tpHDRToneOperatorChiu.h>
 
 QToneOperatorChui::QToneOperatorChui(QWidget* parent) :
 	QToneOperatorFormAbstract(parent, "Chiu")
