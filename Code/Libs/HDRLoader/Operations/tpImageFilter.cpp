@@ -4,7 +4,6 @@
 #include <math.h>
 #include <vector>
 #include <iostream>
-#include <stdio.h>
 #include <stdlib.h>
 
 bool tpImageFilter::ApplyFilter(const tpImageGray& I, tpFilterResult& O, const tpFilter& F)

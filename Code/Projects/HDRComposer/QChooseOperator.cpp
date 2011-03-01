@@ -63,6 +63,7 @@ void QChooseOperator::InitializeCombo(QComboBox* c)
 	c->addItem("Photographic Local");
 	c->addItem("Retinex");
 	c->addItem("Schlick");
+	c->addItem("Durand Slow");
 	// Les operateurs dynamics
 	c->addItem("Photographic (*)");
 	c->addItem("Exp (*)");

@@ -12,6 +12,7 @@
 #include "ToneOperators/QToneOperatorPhotographicLocal.h"
 #include "ToneOperators/QToneOperatorRetinex.h"
 #include "ToneOperators/QToneOperatorSchilck.h"
+#include "ToneOperators/QToneOperatorDurandSlow.h"
 #include <tpException.hpp>
 
 
@@ -61,6 +62,8 @@ QToneOperatorAbstract* ToneOperatorFactory::LoadOperator(const QString& nom, QWi
 	{
 		return new QToneOperatorSchilck(parent);
 	}
+	else if(nom == "Durand Slow")
+		return new QToneOperatorDurandSlow(parent);
 	else
 	{
 		return new QToneOperator(parent, nom);
