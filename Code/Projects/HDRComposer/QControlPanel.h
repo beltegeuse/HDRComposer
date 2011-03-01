@@ -3,8 +3,8 @@
 #include <QtGui>
 
 #include "QChooseOperator.h"
-#include "QToneOperator.h"
-#include "QToneOperatorAbstract.h"
+#include "ToneOperators/QToneOperator.h"
+#include "ToneOperators/QToneOperatorAbstract.h"
 
 class QToneOperator;
 

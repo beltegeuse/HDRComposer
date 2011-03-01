@@ -1,6 +1,6 @@
 #pragma once
 
-#include "QToneOperatorAbstract.h"
+#include "ToneOperators/QToneOperatorAbstract.h"
 
 class ToneOperatorFactory
 {

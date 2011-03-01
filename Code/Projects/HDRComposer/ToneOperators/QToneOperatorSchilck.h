@@ -1,6 +1,6 @@
 #pragma once
 
-#include "QToneOperatorFormAbstract.h"
+#include "ToneOperators/QToneOperatorFormAbstract.h"
 
 class QToneOperatorSchilck : public QToneOperatorFormAbstract
 {

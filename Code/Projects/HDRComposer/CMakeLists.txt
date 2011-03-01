@@ -5,24 +5,25 @@ SET(HDRComposer_SRCS
 	QDynamicConfig.cpp
 	QFenetrePrincipale.cpp
 	QImageLabel.cpp
-	QToneOperator.cpp
-	QToneOperatorAbstract.cpp
-	QToneOperatorAshikm.cpp
-	QToneOperatorChui.cpp
-	QToneOperatorDrago.cpp
-	QToneOperatorExp.cpp
-	QToneOperatorFormAbstract.cpp
-	QToneOperatorLog.cpp
-	QToneOperatorPhotographic.cpp
-	QToneOperatorPhotographicBurn.cpp
-	QToneOperatorPhotographicLocal.cpp
-	QToneOperatorRetinex.cpp
-	QToneOperatorSchilck.cpp
-	QToneOperatorTumblin.cpp
 	QWidgetCentral.cpp
 	ToneOperatorFactory.cpp
 	hdrcomposer.cpp
 	main.cpp
+	
+	ToneOperators/QToneOperator.cpp
+	ToneOperators/QToneOperatorAbstract.cpp
+	ToneOperators/QToneOperatorAshikm.cpp
+	ToneOperators/QToneOperatorChui.cpp
+	ToneOperators/QToneOperatorDrago.cpp
+	ToneOperators/QToneOperatorExp.cpp
+	ToneOperators/QToneOperatorFormAbstract.cpp
+	ToneOperators/QToneOperatorLog.cpp
+	ToneOperators/QToneOperatorPhotographic.cpp
+	ToneOperators/QToneOperatorPhotographicBurn.cpp
+	ToneOperators/QToneOperatorPhotographicLocal.cpp
+	ToneOperators/QToneOperatorRetinex.cpp
+	ToneOperators/QToneOperatorSchilck.cpp
+	ToneOperators/QToneOperatorTumblin.cpp
 )
 
 QT4_WRAP_UI(HDRComposer_SRCS 
@@ -38,23 +39,24 @@ QT4_WRAP_CPP(HDRComposer_SRCS
 	QDynamicConfig.h
 	QFenetrePrincipale.h
 	QImageLabel.h
-	QToneOperator.h
-	QToneOperatorAbstract.h
-	QToneOperatorAshikm.h
-	QToneOperatorChui.h
-	QToneOperatorDrago.h
-	QToneOperatorExp.h
-	QToneOperatorFormAbstract.h
-	QToneOperatorLog.h
-	QToneOperatorPhotographic.h
-	QToneOperatorPhotographicBurn.h
-	QToneOperatorPhotographicLocal.h
-	QToneOperatorRetinex.h
-	QToneOperatorSchilck.h
-	QToneOperatorTumblin.h
 	QWidgetCentral.h
 	ToneOperatorFactory.h
 	hdrcomposer.h
+	
+	ToneOperators/QToneOperator.h
+	ToneOperators/QToneOperatorTumblin.h
+	ToneOperators/QToneOperatorAbstract.h
+	ToneOperators/QToneOperatorAshikm.h
+	ToneOperators/QToneOperatorChui.h
+	ToneOperators/QToneOperatorDrago.h
+	ToneOperators/QToneOperatorExp.h
+	ToneOperators/QToneOperatorFormAbstract.h
+	ToneOperators/QToneOperatorLog.h
+	ToneOperators/QToneOperatorPhotographic.h
+	ToneOperators/QToneOperatorPhotographicBurn.h
+	ToneOperators/QToneOperatorPhotographicLocal.h
+	ToneOperators/QToneOperatorRetinex.h
+	ToneOperators/QToneOperatorSchilck.h
 )
 
 include(${QT_USE_FILE})
