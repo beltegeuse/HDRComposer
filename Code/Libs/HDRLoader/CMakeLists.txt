@@ -49,6 +49,7 @@ target_link_libraries(
   ${FREEIMAGE_LIBRARY}
   ws2_32
   wsock32
+  gomp
 )
 
 install(TARGETS HDRLoader 
