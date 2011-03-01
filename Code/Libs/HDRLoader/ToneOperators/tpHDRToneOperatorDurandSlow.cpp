@@ -57,7 +57,7 @@ void tpHDRToneOperatorDurandSlow::CompressLum(tpImageLuminanceHDR& I)
 					double diff = v-I[vI][vJ];
 					double gaussianIntensity = exp(- (pow((float)diff,2)) / (pow((float)sig,2)));
 					double factor = GaussianFilter[i+m_half_size][j+m_half_size]*gaussianIntensity;
-					O[x][y] += factor*v;
+					O[x][y] += factor*I[vI][vJ];
 					k += factor;
 				}
 			O[x][y] /= k;
