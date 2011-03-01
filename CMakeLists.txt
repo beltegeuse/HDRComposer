@@ -11,6 +11,9 @@ SET(PROJECT_BUILD_PATH ${CMAKE_SOURCE_DIR}/Build)
 # * --- Dependancy ---
 FIND_PACKAGE(FreeImage REQUIRED)
 
+set(QT_USE_QTMAIN TRUE)
+FIND_PACKAGE(Qt4 REQUIRED)
+
 # * --Subprojects--
 ADD_DEFINITIONS("-Wall -W") #Pour afficher les warning lors de la compilation
 
