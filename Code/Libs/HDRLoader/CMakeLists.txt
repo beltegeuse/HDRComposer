@@ -50,6 +50,7 @@ ADD_LIBRARY(HDRLoader SHARED ${HDRLoader_SRCS})
 target_link_libraries(
   HDRLoader
   ${FREEIMAGE_LIBRARY}
+  ${FFTW3_LIBRARY}
   ws2_32
   wsock32
   gomp

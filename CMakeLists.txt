@@ -9,6 +9,8 @@ SET(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/Config/CMake ${CMAKE_MODULE_PATH})
 SET(PROJECT_BUILD_PATH ${CMAKE_SOURCE_DIR}/Build)
 
 # * --- Dependancy ---
+# Fast Fourier transform
+FIND_PACKAGE(FFTW3 REQUIRED)
 # FreeImage : Load all images format
 FIND_PACKAGE(FreeImage REQUIRED)
 # Qt4 : Interface

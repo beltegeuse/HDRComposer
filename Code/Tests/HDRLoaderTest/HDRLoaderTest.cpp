@@ -116,6 +116,23 @@ void GaussianTest()
 	tpImageIO::write(i1,"resGaussian1.png");
 	tpImageIO::write(i2,"resGaussian2.png");
 
+	std::cout << "===== FastGaussianTest =======" << std::endl;
+
+	std::cout << " * Filtrage ... "  << std::endl;
+
+	tpImageFilter::ApplyFastFilter(imG,r1,g1);
+	tpImageFilter::ApplyFastFilter(imG,r2,g2);
+
+	std::cout << " * Conversion ... " << std::endl;
+
+	tpImageConvert::createGrayImageFromFilterResult(r1,i1);
+	tpImageConvert::createGrayImageFromFilterResult(r2,i2);
+
+	std::cout << " * Ecriture ... " << std::endl;
+
+	tpImageIO::write(i1,"resFastGaussian1.png");
+	tpImageIO::write(i2,"resFastGaussian2.png");
+
 	std::cout << "=====================================" << std::endl;
 
 }
@@ -305,8 +322,8 @@ int main(int argc, char* argv[])
 
 	tpDisplayManager::Instance()->Initialise(200,0.5,300);
 
-	ToneMappingTest();
-	//GaussianTest();
+	//ToneMappingTest();
+	GaussianTest();
 	//ColorimetrieTest();
 
 	std::cout << "=====================================" << std::endl;

@@ -40,6 +40,9 @@ public:
 	static  bool ApplyFilter(const tpImageGray& I, tpFilterResult& O, const tpFilter& F);
 	static  bool ApplyFilter(const tpImageLuminanceHDR& I, tpFilterResultDouble& O, const tpFilter& F);
 
+	static  bool ApplyFastFilter(const tpImageGray& I, tpFilterResult& O, const tpFilter& F);
+	static  bool ApplyFastFilter(const tpImageLuminanceHDR& I, tpFilterResultDouble& O, const tpFilter& F);
+
 private:
 
 	template < typename T, typename TRes >
@@ -51,7 +54,8 @@ private:
 
 	template < typename T, typename TRes >
 	static  bool ApplyFilter(const T& I, TRes& O, const tpFilter& F);
-
+	template < typename T, typename TRes >
+	static  bool ApplyFastFilter(const T& I, TRes& O, const tpFilter& F);
 	static  inline void ComputeRightCoord(int& x, int& y, const int h, const int w);
 
 };

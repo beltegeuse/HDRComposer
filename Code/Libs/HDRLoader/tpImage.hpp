@@ -7,6 +7,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <string.h>
+#include <fftw3.h>
 
 #include "tpException.hpp"
 #include "tpConfig.h"
@@ -282,5 +283,6 @@ typedef tpImage<tpRGBf> tpImageColorHDR;
 typedef tpImage<tpRGBAfloat> tpImageColorHDRFloat;
 typedef tpImage<double> tpImageLuminanceHDR;
 typedef tpImage<float> tpImageLuminanceHDRFloat;
+typedef tpImage<fftw_complex> tpImageComplex;
 #endif
 

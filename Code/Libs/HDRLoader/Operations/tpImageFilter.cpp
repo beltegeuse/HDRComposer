@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <stdlib.h>
+#include <fftw3.h>
 
 bool tpImageFilter::ApplyFilter(const tpImageGray& I, tpFilterResult& O, const tpFilter& F)
 {
@@ -14,6 +15,73 @@ bool tpImageFilter::ApplyFilter(const tpImageGray& I, tpFilterResult& O, const t
 bool tpImageFilter::ApplyFilter(const tpImageLuminanceHDR& I, tpFilterResultDouble& O, const tpFilter& F)
 {
 	return ApplyFilter<tpImageLuminanceHDR,tpFilterResultDouble>(I,O,F);
+}
+
+bool tpImageFilter::ApplyFastFilter(const tpImageGray& I, tpFilterResult& O, const tpFilter& F)
+{
+	return ApplyFastFilter<tpImageGray,tpFilterResult>(I,O,F);
+}
+
+bool tpImageFilter::ApplyFastFilter(const tpImageLuminanceHDR& I, tpFilterResultDouble& O, const tpFilter& F)
+{
+	return ApplyFastFilter<tpImageLuminanceHDR,tpFilterResultDouble>(I,O,F);
+}
+
+
+template < typename T, typename TRes >
+bool tpImageFilter::ApplyFastFilter(const T& I, TRes& O, const tpFilter& F)
+{
+	int L = I.getWidth();
+	int M = I.getHeight();
+	std::cout << "[INFO] Create complex caches numbers : " << L << "x" << M << std::endl;
+	fftw_complex* in = (fftw_complex*)fftw_malloc(sizeof (fftw_complex)*M*L);
+	fftw_complex* out = (fftw_complex*)fftw_malloc(sizeof (fftw_complex)*M*L);
+	fftw_plan p;
+	fftw_plan p_inv;
+	//  Fill fftw_complex
+	for(int i = 0; i < M; i++)
+		for(int j = 0; j < L; j++)
+		{
+			in[i*L+j][0] = I[i][j];
+			in[i*L+j][1] = 0;
+		}
+	// Create the plan (need by fftw)
+	p = fftw_plan_dft_2d(M, L, in, out, FFTW_FORWARD, FFTW_ESTIMATE);
+	// Apply the transform
+	fftw_execute(p);
+	// Apply filter
+	int w2 = (int)floor(F.getWidth() / 2.0);
+	int h2 = (int)floor(F.getHeight() / 2.0);
+	int centerX = (int)ceil(M / 2.0);
+	int centerY = (int)ceil(M / 2.0);
+	for(int x = 0; x < M; x++)
+			for(int y = 0; y < L; y++)
+			{
+				if(((centerX - h2) < x) & ((centerX + h2) >= x) & ((centerY - w2) < y) & ((centerY + w2) >= y))
+				{
+					int vX = x - (centerX - h2);
+					int vY = y - (centerY - w2);
+					in[x*L+y][0] = F[vX][vY]*out[x*L+y][0];
+					in[x*L+y][1] = F[vX][vY]*out[x*L+y][1];
+				}
+				else
+				{
+					in[x*L+y][0] = 0;
+					in[x*L+y][1] = 0;
+				}
+			}
+	// Reverse the transform ...
+	p_inv = fftw_plan_dft_2d(M, L, in, out, FFTW_BACKWARD, FFTW_ESTIMATE);
+	fftw_execute(p_inv);
+	// Copy result
+	for(int i = 0; i < M; i++)
+		for(int j = 0; j < L; j++)
+			O[i][j] = in[i*L+j][0];
+	// Free memory
+	fftw_destroy_plan(p);
+	fftw_destroy_plan(p_inv);
+	fftw_free(in);
+	fftw_free(out);
 }
 
 template < typename T, typename TRes >
