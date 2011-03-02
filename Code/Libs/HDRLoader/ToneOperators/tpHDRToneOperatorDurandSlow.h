@@ -12,8 +12,10 @@ class TP_EXPORT tpHDRToneOperatorDurandSlow  : public tpHDRToneOperatorLumAbstra
 {
 private:
 	int m_half_size;
+	float m_sig_d;
+	float m_sig_r;
 public:
-	tpHDRToneOperatorDurandSlow(int halfSize = 9);
+	tpHDRToneOperatorDurandSlow(int halfSize = 9, int sig_d = 10, int sig_r = 30);
 	virtual ~tpHDRToneOperatorDurandSlow();
 
 	// ==== Methodes publiques
@@ -21,6 +23,10 @@ public:
 
 	void SetHalfSize(int halfSize);
 	int GetHalfSize();
+	void SetSigD(float v);
+	float GetSigD();
+	void SetSigR(float v);
+	float GetSigR();
 
 };
 

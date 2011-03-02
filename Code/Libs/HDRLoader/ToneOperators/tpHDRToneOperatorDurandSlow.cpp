@@ -8,8 +8,10 @@
 #include "tpHDRToneOperatorDurandSlow.h"
 #include "tpMath.h"
 
-tpHDRToneOperatorDurandSlow::tpHDRToneOperatorDurandSlow(int halfSize) :
-	m_half_size(halfSize)
+tpHDRToneOperatorDurandSlow::tpHDRToneOperatorDurandSlow(int halfSize, int sig_d, int sig_r) :
+	m_half_size(halfSize),
+	m_sig_d(sig_d),
+	m_sig_r(sig_r)
 {
 }
 
@@ -28,9 +30,8 @@ void tpHDRToneOperatorDurandSlow::CompressLum(tpImageLuminanceHDR& I)
 
 	// Get Gaussian Kernel
 	int taille = m_half_size*2+1;
-	tpFilter GaussianFilter = tpMath::GaussianKernel2D(m_half_size*2+1);
 	// And sigma factor
-	double sig = (taille - 1) / 8.0;
+	tpFilter GaussianFilter = tpMath::GaussianKernel2D(m_sig_d, taille);
 
     #pragma omp parallel for
 	for(int x = 0; x < h; x++)
@@ -55,7 +56,7 @@ void tpHDRToneOperatorDurandSlow::CompressLum(tpImageLuminanceHDR& I)
 						vJ = 2*w - (vJ+1);
 					// Compute values
 					double diff = v-I[vI][vJ];
-					double gaussianIntensity = exp(- (pow((float)diff,2)) / (pow((float)sig,2)));
+					double gaussianIntensity = exp(- (pow((float)diff,2)) / (pow((float)m_sig_r,2)));
 					double factor = GaussianFilter[i+m_half_size][j+m_half_size]*gaussianIntensity;
 					O[x][y] += factor*I[vI][vJ];
 					k += factor;
@@ -79,4 +80,21 @@ void tpHDRToneOperatorDurandSlow::SetHalfSize(int halfSize)
 int tpHDRToneOperatorDurandSlow::GetHalfSize()
 {
 	return m_half_size;
+}
+
+void tpHDRToneOperatorDurandSlow::SetSigD(float v)
+{
+	m_sig_d = v;
+}
+float tpHDRToneOperatorDurandSlow::GetSigD()
+{
+	return m_sig_d;
+}
+void tpHDRToneOperatorDurandSlow::SetSigR(float v)
+{
+	m_sig_r = v;
+}
+float tpHDRToneOperatorDurandSlow::GetSigR()
+{
+	return m_sig_r;
 }

@@ -22,6 +22,7 @@ SET(HDRLoader_SRCS
 	ToneOperators/tpHDRToneOperatorChiu.cpp
 	ToneOperators/tpHDRToneOperatorDrago.cpp
 	ToneOperators/tpHDRToneOperatorDurandSlow.cpp
+	ToneOperators/tpHDRToneOperatorDurandFast.cpp
 	ToneOperators/tpHDRToneOperatorExp.cpp
 	ToneOperators/tpHDRToneOperatorFilmic.cpp
 	ToneOperators/tpHDRToneOperatorFilmicDynamic.cpp

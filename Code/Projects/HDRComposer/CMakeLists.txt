@@ -15,6 +15,7 @@ SET(HDRComposer_SRCS
 	ToneOperators/QToneOperatorAshikm.cpp
 	ToneOperators/QToneOperatorChui.cpp
 	ToneOperators/QToneOperatorDrago.cpp
+	ToneOperators/QToneOperatorDurandFast.cpp
 	ToneOperators/QToneOperatorDurandSlow.cpp
 	ToneOperators/QToneOperatorExp.cpp
 	ToneOperators/QToneOperatorFormAbstract.cpp

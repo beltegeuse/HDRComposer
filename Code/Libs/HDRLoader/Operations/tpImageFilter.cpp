@@ -97,34 +97,6 @@ bool tpImageFilter::ApplyFastFilterTemplate(const T& I, TRes& O, const tpFilter&
 	p_inv = fftw_plan_dft_2d(M, L, out, in, FFTW_BACKWARD, FFTW_ESTIMATE);
 	fftw_execute(p_inv);
 	// Copy result
-
-	/*for (int j = 0; j <height; j++)
-		for (int i = 0; i <width; i++)
-		{
-			int x = i;
-			int y = j;
-			if (i <width / 2 && j <height / 2)
-			{
-				x = i + width / 2;
-				y = j + height / 2;
-			}
-			if (i >= width / 2 && j < height / 2)
-			{
-				x = i - width / 2;
-				y = j + height / 2;
-			}
-			if (i < width /2 && j>= height / 2)
-			{
-				x = i + width / 2;
-				y = j - height / 2;
-			}
-			if (i>= width / 2 && j >= height / 2)
-			{
-				x = i-width / 2;
-				y = j-height / 2;
-			}
-			O[y][x] = in[j * width + i][0]*factor;
-		}*/
 	for(int i = 0; i < centerX; i++)
 		for(int j = 0; j < centerY; j++)
 		{
