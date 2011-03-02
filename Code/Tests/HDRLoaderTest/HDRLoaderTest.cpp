@@ -92,7 +92,7 @@ void GaussianTest()
 
 	std::cout << " * Lecture ... " << std::endl;
 
-	tpImageIO::read(imG,"Donnees/gun.png");
+	tpImageIO::read(imG,"Donnees/manga.png");
 
 	std::cout << " * Creation Noyeaux gaussiens ... " << std::endl;
 	
