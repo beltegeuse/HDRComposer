@@ -81,6 +81,32 @@ void ToneMappingTest()
 	std::cout << "=====================================" << std::endl;
 }
 
+void GaussianHDRTest()
+{
+	// Read HDR Image
+	std::string path = "../Donnees/nancy_church_1.hdr";
+	tpImageColorHDR I;
+	tpImageIO::readHDR(I,path);
+	// Convert HDR Image
+	tpImageLuminanceHDR image;
+	tpImageConvert::createLuminanceImage(I, image);
+	tpImageConvert::Calibration(image);
+	// Create Kernel
+	tpFilter kernel = tpMath::GaussianKernel2D((float)3.0);
+	// Filter spatially
+	tpFilterResultDouble LblurSpace;
+	tpImageFilter::ApplyFilter(image, LblurSpace, kernel);
+	// Filter fast
+	tpFilterResultDouble LblurFast;
+	tpImageFilter::ApplyFastFilter(image, LblurFast, kernel);
+	for(int i = 0; i < I.getHeight(); i++)
+		for(int j = 0; j < I.getWidth(); j++)
+		{
+			if(LblurSpace[i][j] != LblurFast[i][j])
+				std::cout << i << "x" << j << " : " << LblurSpace[i][j] << " | " << LblurFast[i][j] << std::endl;
+		}
+}
+
 void GaussianTest()
 {
 
@@ -92,12 +118,12 @@ void GaussianTest()
 
 	std::cout << " * Lecture ... " << std::endl;
 
-	tpImageIO::read(imG,"Donnees/manga.png");
+	tpImageIO::read(imG,"../Donnees/testImage.png");
 
 	std::cout << " * Creation Noyeaux gaussiens ... " << std::endl;
 	
 	tpFilter g1 = tpMath::GaussianKernel2D((float)1.0);
-	tpFilter g2 = tpMath::GaussianKernel2D((float)10.0);
+	tpFilter g2 = tpMath::GaussianKernel2D((float)3.0);
 
 	std::cout << " * Filtrage ... "  << std::endl;
 
@@ -324,7 +350,8 @@ int main(int argc, char* argv[])
 	tpDisplayManager::Instance()->Initialise(200,0.5,300);
 
 	//ToneMappingTest();
-	GaussianTest();
+	//GaussianTest();
+	GaussianHDRTest();
 	//ColorimetrieTest();
 
 	std::cout << "=====================================" << std::endl;

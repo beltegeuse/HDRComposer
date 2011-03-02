@@ -53,9 +53,9 @@ private:
 									const int h2,const int w2);
 
 	template < typename T, typename TRes >
-	static  bool ApplyFilter(const T& I, TRes& O, const tpFilter& F);
+	static bool ApplyFilterTemplate(const T& I, TRes& O, const tpFilter& F);
 	template < typename T, typename TRes >
-	static  bool ApplyFastFilter(const T& I, TRes& O, const tpFilter& F);
+	static bool ApplyFastFilterTemplate(const T& I, TRes& O, const tpFilter& F);
 	static  inline void ComputeRightCoord(int& x, int& y, const int h, const int w);
 
 };

@@ -9,32 +9,32 @@
 
 bool tpImageFilter::ApplyFilter(const tpImageGray& I, tpFilterResult& O, const tpFilter& F)
 {
-	return ApplyFilter<tpImageGray,tpFilterResult>(I,O,F);
+	return ApplyFastFilterTemplate<tpImageGray,tpFilterResult>(I,O,F);
 }
 
 bool tpImageFilter::ApplyFilter(const tpImageLuminanceHDR& I, tpFilterResultDouble& O, const tpFilter& F)
 {
-	return ApplyFilter<tpImageLuminanceHDR,tpFilterResultDouble>(I,O,F);
+	return ApplyFastFilterTemplate<tpImageLuminanceHDR,tpFilterResultDouble>(I,O,F);
 }
 
 bool tpImageFilter::ApplyFastFilter(const tpImageGray& I, tpFilterResult& O, const tpFilter& F)
 {
-	return ApplyFastFilter<tpImageGray,tpFilterResult>(I,O,F);
+	return ApplyFastFilterTemplate<tpImageGray,tpFilterResult>(I,O,F);
 }
 
 bool tpImageFilter::ApplyFastFilter(const tpImageLuminanceHDR& I, tpFilterResultDouble& O, const tpFilter& F)
 {
-	return ApplyFastFilter<tpImageLuminanceHDR,tpFilterResultDouble>(I,O,F);
+	return ApplyFastFilterTemplate<tpImageLuminanceHDR,tpFilterResultDouble>(I,O,F);
 }
 
 template < typename T, typename TRes >
-bool tpImageFilter::ApplyFastFilter(const T& I, TRes& O, const tpFilter& F)
+bool tpImageFilter::ApplyFastFilterTemplate(const T& I, TRes& O, const tpFilter& F)
 {
 	int L = I.getWidth();
 	int width = L;
 	int M = I.getHeight();
 	int height = M;
-
+	const double factor = 1.0/sqrt(height*width);
 	O.resize(height, width);
 
 	std::cout << "[INFO] Create complex caches numbers : " << L << "x" << M << std::endl;
@@ -97,7 +97,7 @@ bool tpImageFilter::ApplyFastFilter(const T& I, TRes& O, const tpFilter& F)
 	p_inv = fftw_plan_dft_2d(M, L, out, in, FFTW_BACKWARD, FFTW_ESTIMATE);
 	fftw_execute(p_inv);
 	// Copy result
-	const double factor = 1.0/sqrt(height*width);
+
 	/*for (int j = 0; j <height; j++)
 		for (int i = 0; i <width; i++)
 		{
@@ -128,10 +128,10 @@ bool tpImageFilter::ApplyFastFilter(const T& I, TRes& O, const tpFilter& F)
 	for(int i = 0; i < centerX; i++)
 		for(int j = 0; j < centerY; j++)
 		{
-			O[i][j] = in[(i+centerX)*width + j+centerY][0];
-			O[i][j+centerY] = in[(i+centerX)*width + j][0];
-			O[i+centerX][j+centerY] = in[(i)*width + j][0];
-			O[i+centerX][j] = in[(i)*width + j + centerY][0];
+			O[i][j] = in[(i+centerX)*width + j+centerY][0]*factor*factor;
+			O[i][j+centerY] = in[(i+centerX)*width + j][0]*factor*factor;
+			O[i+centerX][j+centerY] = in[(i)*width + j][0]*factor*factor;
+			O[i+centerX][j] = in[(i)*width + j + centerY][0]*factor*factor;
 		}
 	// Free memory
 	fftw_destroy_plan(p);
@@ -142,7 +142,7 @@ bool tpImageFilter::ApplyFastFilter(const T& I, TRes& O, const tpFilter& F)
 }
 
 template < typename T, typename TRes >
-bool tpImageFilter::ApplyFilter(const T& I, TRes& O, const tpFilter& F)
+bool tpImageFilter::ApplyFilterTemplate(const T& I, TRes& O, const tpFilter& F)
 {
 	int w = I.getWidth();
 	int h = I.getHeight();

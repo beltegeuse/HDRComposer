@@ -69,7 +69,7 @@ INCLUDE_DIRECTORIES(
 	../../Libs/HDRLoader
 )
 
-ADD_EXECUTABLE(HDRComposer WIN32 ${HDRComposer_SRCS})
+ADD_EXECUTABLE(HDRComposer ${HDRComposer_SRCS})
 
 target_link_libraries(
   HDRComposer
