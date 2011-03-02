@@ -97,7 +97,7 @@ void GaussianTest()
 	std::cout << " * Creation Noyeaux gaussiens ... " << std::endl;
 	
 	tpFilter g1 = tpMath::GaussianKernel2D((float)1.0);
-	tpFilter g2 = tpMath::GaussianKernel2D((float)2.0);
+	tpFilter g2 = tpMath::GaussianKernel2D((float)10.0);
 
 	std::cout << " * Filtrage ... "  << std::endl;
 
@@ -115,6 +115,7 @@ void GaussianTest()
 
 	tpImageIO::write(i1,"resGaussian1.png");
 	tpImageIO::write(i2,"resGaussian2.png");
+
 
 	std::cout << "===== FastGaussianTest =======" << std::endl;
 
