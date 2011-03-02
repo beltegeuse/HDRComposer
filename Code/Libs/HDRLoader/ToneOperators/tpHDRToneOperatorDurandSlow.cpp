@@ -68,7 +68,7 @@ void tpHDRToneOperatorDurandSlow::CompressLum(tpImageLuminanceHDR& I)
 	for(int x = 0; x < h; x++)
 		for(int y = 0; y < w; y++)
 		{
-			I[x][y] = O[x][y];
+			I[x][y] = I[x][y]/O[x][y];
 		}
 }
 

@@ -21,7 +21,7 @@ void tpHDRToneOperatorDurandFast::CompressLum(tpImageLuminanceHDR& I)
 	int w = I.getWidth();
 	int h = I.getHeight();
 
-	tpFilter f = tpMath::GaussianKernel2D(5.0f);
+	tpFilter f = tpMath::GaussianKernel2D(0.4f,5);
 
 	// Create new image to store the result
 	tpImageLuminanceHDR J;
@@ -33,14 +33,15 @@ void tpHDRToneOperatorDurandFast::CompressLum(tpImageLuminanceHDR& I)
 
 	tpFilterResultDouble K;
 	tpFilterResultDouble Hstar;
-	// number of segments
-	int nbSegments = 10;
 	double intensityFactor = 0.1;
 
 	double minI = tpHDROperations::GetMin(I);
 	double maxI = tpHDROperations::GetMax(I);
 	double dynamic = maxI - minI;
-
+	// number of segments
+	//FIXME: Provide automatic number of segments.
+	int nbSegments = 10;
+	std::cout << "[INFO] Number of segments : " << nbSegments << std::endl;
 	for(int j = 0; j < nbSegments; j++)
 	{
 		double i_j = minI + j*dynamic/((float)nbSegments);
@@ -54,7 +55,7 @@ void tpHDRToneOperatorDurandFast::CompressLum(tpImageLuminanceHDR& I)
 		tpImageFilter::ApplyFastFilter(H,Hstar,f);
 		for(int x = 0; x < h; x++)
 			for(int y = 0; y < w; y++)
-				J[x][y] = J[x][y]+Hstar[x][y]/K[x][y];
+				J[x][y] = J[x][y]+(Hstar[x][y]/K[x][y])*intensityFactor;
 
 
 	}
@@ -63,6 +64,7 @@ void tpHDRToneOperatorDurandFast::CompressLum(tpImageLuminanceHDR& I)
 	for(int x = 0; x < h; x++)
 		for(int y = 0; y < w; y++)
 		{
+			//I[x][y] = I[x][y]/J[x][y];
 			I[x][y] = J[x][y];
 		}
 }
