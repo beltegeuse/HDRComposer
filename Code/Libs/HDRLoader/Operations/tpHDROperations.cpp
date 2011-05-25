@@ -1,4 +1,6 @@
+#ifdef WIN32
 #include "StdAfx.h"
+#endif
 #include "Operations/tpHDROperations.h"
 #include "Operations/tpImageConvert.hpp"
 

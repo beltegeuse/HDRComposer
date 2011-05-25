@@ -48,6 +48,7 @@ INCLUDE_DIRECTORIES(
 
 ADD_LIBRARY(HDRLoader SHARED ${HDRLoader_SRCS})
 
+IF(WIN32)
 target_link_libraries(
   HDRLoader
   ${FREEIMAGE_LIBRARY}
@@ -56,6 +57,14 @@ target_link_libraries(
   wsock32
   gomp
 )
+ELSE()
+target_link_libraries(
+  HDRLoader
+  ${FREEIMAGE_LIBRARY}
+  ${FFTW3_LIBRARY}
+  gomp
+)
+ENDIF()
 
 install(TARGETS HDRLoader 
   RUNTIME DESTINATION ${PROJECT_BUILD_PATH}

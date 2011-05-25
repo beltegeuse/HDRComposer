@@ -1,4 +1,6 @@
+#ifdef WIN32
 #include "StdAfx.h"
+#endif
 #include "tpHDRToneOperatorChiu.h"
 #include "tpMath.h"
 #include "Operations/tpImageFilter.hpp"

@@ -1,4 +1,6 @@
-﻿#include "StdAfx.h"
+﻿#ifdef WIN32
+#include "StdAfx.h"
+#endif
 #include "tpException.hpp"
 #include <sstream>
 

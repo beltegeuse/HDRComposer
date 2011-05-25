@@ -1,4 +1,6 @@
+#ifdef WIN32
 #include "StdAfx.h"
+#endif
 #include "Managers/tpDisplayManager.h"
 
 tpDisplayManager::tpDisplayManager(void) :

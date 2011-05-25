@@ -1,4 +1,6 @@
+#ifdef WIN32
 #include "StdAfx.h"
+#endif
 #include "tpHDRToneOperatorAshikhmin.h"
 #include "Operations/tpHDROperations.h"
 #include "Managers/tpDisplayManager.h"

@@ -1,4 +1,6 @@
+#ifdef WIN32
 #include "StdAfx.h"
+#endif
 #include "tpToneOperatorGroup.h"
 #include "tpImage.hpp"
 #include "tpImageIO.hpp"

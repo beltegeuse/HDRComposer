@@ -4,7 +4,9 @@
  *  Created on: 26 févr. 2010
  *      Author: beltegeuse
  */
+#ifdef WIN32
 #include "StdAfx.h"
+#endif
 #include "tpPerformances.hpp"
 #include <iostream>
 

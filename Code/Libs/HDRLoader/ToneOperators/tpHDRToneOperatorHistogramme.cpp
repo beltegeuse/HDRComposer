@@ -1,4 +1,6 @@
+#ifdef WIN32
 #include "StdAfx.h"
+#endif
 #include "tpHDRToneOperatorHistogramme.h"
 
 tpHDRToneOperatorHistogramme::tpHDRToneOperatorHistogramme(void)

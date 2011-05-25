@@ -1,4 +1,6 @@
+#ifdef WIN32
 #include "StdAfx.h"
+#endif
 #include "Operations/tpOperatorCropping.h"
 
 #include <vector>

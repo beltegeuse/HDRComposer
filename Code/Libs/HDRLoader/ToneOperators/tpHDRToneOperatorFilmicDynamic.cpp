@@ -1,4 +1,6 @@
+#ifdef WIN32
 #include "StdAfx.h"
+#endif
 #include "tpHDRToneOperatorFilmicDynamic.h"
 #include "Operations/tpHDROperations.h"
 #include "Managers/tpDynamicToneMappingManager.h"

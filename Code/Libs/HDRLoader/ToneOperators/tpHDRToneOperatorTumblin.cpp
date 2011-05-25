@@ -1,4 +1,6 @@
+#ifdef WIN32
 #include "StdAfx.h"
+#endif
 
 #include "tpHDRToneOperatorTumblin.h"
 #include "Managers/tpDisplayManager.h"
