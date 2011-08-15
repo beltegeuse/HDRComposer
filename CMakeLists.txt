@@ -19,11 +19,11 @@ FIND_PACKAGE(Qt4 REQUIRED)
 # OpenMP :
 FIND_PACKAGE(OpenMP REQUIRED)
 if(OPENMP_FOUND)
-    set(${CCMAKE_CXX_FLAGS} -fopenmp)
-    set(${CCMAKE_C_FLAGS} -fopenmp)
+    set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}) 
+    set(CCMAKE_C_FLAGS ${CCMAKE_C_FLAGS} ${OpenMP_C_FLAGS})
     set(${CMAKE_EXE_LINKER_FLAGS} -lgomp)
 endif()
 # * --Subprojects--
-ADD_DEFINITIONS("-Wall -W -fopenmp") #Pour afficher les warning lors de la compilation
+#ADD_DEFINITIONS("-Wall -W") #Pour afficher les warning lors de la compilation
 
 ADD_SUBDIRECTORY(Code)

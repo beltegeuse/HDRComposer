@@ -36,7 +36,7 @@ bool tpImageFilter::ApplyFastFilterTemplate(const T& I, TRes& O, const tpFilter&
 	int width = L;
 	int M = I.getHeight();
 	int height = M;
-	const double factor = 1.0/sqrt(height*width);
+	const double factor = 1.0/sqrt((double)height*width);
 	O.resize(height, width);
 
 	std::cout << "[INFO] Create complex caches numbers : " << L << "x" << M << std::endl;
@@ -113,6 +113,7 @@ bool tpImageFilter::ApplyFastFilterTemplate(const T& I, TRes& O, const tpFilter&
 	fftw_free(in);
 	fftw_free(out);
 	fftw_free(kernel);
+	return true;
 }
 
 template < typename T, typename TRes >

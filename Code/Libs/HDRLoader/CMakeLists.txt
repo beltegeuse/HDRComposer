@@ -46,7 +46,7 @@ INCLUDE_DIRECTORIES(
 	${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-ADD_LIBRARY(HDRLoader SHARED ${HDRLoader_SRCS})
+ADD_LIBRARY(HDRLoader STATIC ${HDRLoader_SRCS})
 
 IF(WIN32)
 target_link_libraries(
@@ -55,7 +55,7 @@ target_link_libraries(
   ${FFTW3_LIBRARY}
   ws2_32
   wsock32
-  gomp
+  #gomp
 )
 ELSE()
 target_link_libraries(
