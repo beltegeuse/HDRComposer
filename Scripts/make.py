@@ -3,7 +3,7 @@ import os
 import subprocess
 import time
 
-headers = []
+headers = [] # 
 
 def Usage():
     print("make.py Version 0.2 pour EodeGame")
@@ -62,7 +62,7 @@ class Compilation:
         # On ajoute la fin de la commande
         commande += ' ..'
         
-        
+        print "EXEC " + commande
 
 
         os.system(commande)
