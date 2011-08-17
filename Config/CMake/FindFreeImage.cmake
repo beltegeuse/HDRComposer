@@ -6,30 +6,31 @@
 # FreeImage_INCLUDE_DIR
 # FreeImage_LIBRARY
 #
+# Need LibFindMacros & LibFindVSPath (Win32 only)
 
 include(LibFindMacros)
-include(LibFindVSPath)
 
 # Use pkg-config to get hints about paths
 libfind_pkg_check_modules(FreeImage_PKGCONF FreeImage)
 
 IF(WIN32)
+    include(LibFindVSPath)
+    
 	find_path(FreeImage_INCLUDE_DIR
  	 NAMES FreeImage.h
   	 PATHS 
+  	    ${FreeImage_ROOT_DIR}/include
   	 	${FreeImage_PKGCONF_INCLUDE_DIRS} 
-  	 	${FreeImage_ROOT_DIR}/include
   	 	${VS_DIR}/VC/include
   	 	C:/MinGW/include
-  	 	${FreeImage_ROOT_DIR}/include
   	 DOC "The directory where FreeImage.h resides"
 	)
 	
 	find_library(FreeImage_LIBRARY
  	 NAMES libfreeimage freeimage FreeImage
   	 PATHS 
+  	    ${FreeImage_ROOT_DIR}/lib
   	 	${FreeImage_PKGCONF_LIBRARY_DIRS} 
-  	 	${FreeImage_ROOT_DIR}/lib
   	 	${VS_DIR}/VC/lib
   	 	C:/MinGW/lib
   	 DOC "The FreeImage library"
@@ -39,18 +40,19 @@ ELSE(WIN32)
 	find_path(FreeImage_INCLUDE_DIR
  	 NAMES FreeImage.h
   	 PATHS 
+  	    ${FreeImage_ROOT_DIR}/include
   	 	${FreeImage_PKGCONF_INCLUDE_DIRS} 
   	 	/usr/include
   	 	/usr/local/include
 		/sw/include
 		/opt/local/include
-		${FreeImage_ROOT_DIR}/include
   	 DOC "The directory where FreeImage.h resides"
 	)
 	
 	find_library(FreeImage_LIBRARY
  	 NAMES libfreeimage freeimage
   	 PATHS 
+  	 	${FreeImage_ROOT_DIR}/include
   	 	${FreeImage_PKGCONF_INCLUDE_DIRS} 
   	 	/usr/lib64
 		/usr/lib
@@ -58,7 +60,6 @@ ELSE(WIN32)
 		/usr/local/lib
 		/sw/lib
 		/opt/local/lib
-		${FreeImage_ROOT_DIR}/include
   	 DOC "The FreeImage library"
 	)
 ENDIF(WIN32)

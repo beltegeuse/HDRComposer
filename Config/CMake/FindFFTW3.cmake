@@ -6,30 +6,31 @@
 # FFTW3_INCLUDE_DIR
 # FFTW3_LIBRARY
 # 
+# Need LibFindMacros & LibFindVSPath (Win32 only)
 
 include(LibFindMacros)
-include(LibFindVSPath)
 
 # Use pkg-config to get hints about paths
 libfind_pkg_check_modules(FFTW3_PKGCONF fftw3)
 
 IF(WIN32)
+	include(LibFindVSPath)
+
 	find_path(FFTW3_INCLUDE_DIR
  	 NAMES fftw3.h
   	 PATHS 
+  	    ${FFTW3_ROOT_DIR}/include
   	 	${FFTW3_PKGCONF_INCLUDE_DIRS} 
-  	 	${FFTW3_ROOT_DIR}/include
   	 	${VS_DIR}/VC/include
   	 	C:/MinGW/include
-  	 	${FFTW3_ROOT_DIR}/include
   	 DOC "The directory where fftw3.h resides"
 	)
 	
 	find_library(FFTW3_LIBRARY
  	 NAMES libfftw3 fftw3
   	 PATHS 
+  	    ${FFTW3_ROOT_DIR}/lib
   	 	${FFTW3_PKGCONF_LIBRARY_DIRS} 
-  	 	${FFTW3_ROOT_DIR}/lib
   	 	${VS_DIR}/VC/lib
   	 	C:/MinGW/lib
   	 DOC "The fftw3 library"
@@ -39,18 +40,19 @@ ELSE(WIN32)
 	find_path(FFTW3_INCLUDE_DIR
  	 NAMES fftw3.h
   	 PATHS 
+  	 	${FFTW3_ROOT_DIR}/include
   	 	${FFTW3_PKGCONF_INCLUDE_DIRS} 
   	 	/usr/include
   	 	/usr/local/include
 		/sw/include
 		/opt/local/include
-		${FFTW3_ROOT_DIR}/include
   	 DOC "The directory where fftw3.h resides"
 	)
 	
 	find_library(FFTW3_LIBRARY
  	 NAMES libfftw3 fftw3
   	 PATHS 
+  	 	${FFTW3_ROOT_DIR}/include
   	 	${FFTW3_PKGCONF_INCLUDE_DIRS} 
   	 	/usr/lib64
 		/usr/lib
@@ -58,7 +60,6 @@ ELSE(WIN32)
 		/usr/local/lib
 		/sw/lib
 		/opt/local/lib
-		${FFTW3_ROOT_DIR}/include
   	 DOC "The fftw3 library"
 	)
 ENDIF(WIN32)
