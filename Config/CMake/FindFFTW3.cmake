@@ -8,7 +8,7 @@
 # 
 
 include(LibFindMacros)
-include(FindVSPath)
+include(LibFindVSPath)
 
 # Use pkg-config to get hints about paths
 libfind_pkg_check_modules(FFTW3_PKGCONF fftw3)
