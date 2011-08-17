@@ -53,7 +53,7 @@ ELSE(WIN32)
  	 NAMES libfreeimage freeimage
   	 PATHS 
   	 	${FreeImage_ROOT_DIR}/include
-  	 	${FreeImage_PKGCONF_INCLUDE_DIRS} 
+  	 	${FreeImage_PKGCONF_LIBRARY_DIRS} 
   	 	/usr/lib64
 		/usr/lib
 		/usr/local/lib64

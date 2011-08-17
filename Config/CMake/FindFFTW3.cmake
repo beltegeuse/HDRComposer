@@ -53,7 +53,7 @@ ELSE(WIN32)
  	 NAMES libfftw3 fftw3
   	 PATHS 
   	 	${FFTW3_ROOT_DIR}/include
-  	 	${FFTW3_PKGCONF_INCLUDE_DIRS} 
+  	 	${FFTW3_PKGCONF_LIBRARY_DIRS} 
   	 	/usr/lib64
 		/usr/lib
 		/usr/local/lib64
