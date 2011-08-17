@@ -3,7 +3,7 @@
 # Once done this will define
 #
 # FFTW3_FOUND
-# FFTW3_INCLUDE_PATH
+# FFTW3_INCLUDE_DIR
 # FFTW3_LIBRARY
 # 
 
@@ -52,10 +52,12 @@ ELSE(WIN32)
  	 NAMES libfftw3 fftw3
   	 PATHS 
   	 	${FFTW3_PKGCONF_INCLUDE_DIRS} 
-  	 	/usr/include
-  	 	/usr/local/include
-		/sw/include
-		/opt/local/include
+  	 	/usr/lib64
+		/usr/lib
+		/usr/local/lib64
+		/usr/local/lib
+		/sw/lib
+		/opt/local/lib
 		${FFTW3_ROOT_DIR}/include
   	 DOC "The fftw3 library"
 	)

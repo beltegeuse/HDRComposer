@@ -51,20 +51,20 @@ ADD_LIBRARY(HDRLoader STATIC ${HDRLoader_SRCS})
 IF(WIN32)
 target_link_libraries(
   HDRLoader
-  ${FREEIMAGE_LIBRARY}
+  ${FreeImage_LIBRARY}
   ${FFTW3_LIBRARY}
   ws2_32
   wsock32
   #gomp
 )
-ELSE()
+ELSE(WIN32)
 target_link_libraries(
   HDRLoader
-  ${FREEIMAGE_LIBRARY}
+  ${FreeImage_LIBRARY}
   ${FFTW3_LIBRARY}
   gomp
 )
-ENDIF()
+ENDIF(WIN32)
 
 install(TARGETS HDRLoader 
   RUNTIME DESTINATION ${PROJECT_BUILD_PATH}
