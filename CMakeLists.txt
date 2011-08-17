@@ -9,6 +9,9 @@ SET(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/Config/CMake ${CMAKE_MODULE_PATH})
 SET(PROJECT_BUILD_PATH ${CMAKE_SOURCE_DIR}/Build)
 
 # * --- Dependancy ---
+# -------------- Config Root dir
+SET(FFTW3_ROOT_DIR ${DEPENDANCIES_ROOT_DIR})
+SET(FreeImage_ROOT_DIR ${DEPENDANCIES_ROOT_DIR})
 # Fast Fourier transform
 FIND_PACKAGE(FFTW3 REQUIRED)
 # FreeImage : Load all images format
@@ -23,7 +26,10 @@ if(OPENMP_FOUND)
     set(CCMAKE_C_FLAGS ${CCMAKE_C_FLAGS} ${OpenMP_C_FLAGS})
     set(${CMAKE_EXE_LINKER_FLAGS} -lgomp)
 endif()
+
 # * --Subprojects--
-#ADD_DEFINITIONS("-Wall -W") #Pour afficher les warning lors de la compilation
+IF(LINUX)
+	ADD_DEFINITIONS("-Wall -W") #Pour afficher les warning lors de la compilation
+ENDIF(LINUX)
 
 ADD_SUBDIRECTORY(Code)
